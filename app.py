@@ -21,7 +21,7 @@ DATA_PATH = BASE_DIR / "data" / "sample_markets.csv"
 
 st.set_page_config(
     page_title="Market Expansion Command Center",
-    page_icon="",
+    page_icon=":chart_with_upwards_trend:",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -121,6 +121,25 @@ with st.sidebar:
         default=sorted(raw_markets["region"].unique()),
     )
     confidence_floor = st.slider("Minimum data confidence", min_value=0.50, max_value=0.95, value=0.60, step=0.01)
+
+    st.divider()
+    st.caption("Scoring weights")
+    weights_view = pd.DataFrame(
+        {
+            "Driver": [
+                "Market size",
+                "Growth",
+                "Profitability",
+                "Pipeline",
+                "Strategic fit",
+                "Channel access",
+                "Risk",
+                "Confidence",
+            ],
+            "Weight": ["18%", "14%", "18%", "14%", "12%", "10%", "10%", "4%"],
+        }
+    )
+    st.dataframe(weights_view, use_container_width=True, hide_index=True)
 
 assumptions = Assumptions(
     setup_cost=float(setup_cost),
