@@ -1,0 +1,6 @@
+market,region,tam_m,serviceable_share_pct,expected_growth_pct,competition_intensity,regulatory_complexity,logistics_cost_pct,tariff_pct,expected_price_per_unit,unit_cogs,payment_cycle_days,leads,qualified_rate,win_rate,avg_contract_value,avg_contract_margin_pct,sales_cycle_days,retention_pct,strategic_fit,channel_access,fx_risk,data_confidence
+United Arab Emirates,Middle East,820,38,9.5,6,4,7.0,3.0,128,72,45,210,0.34,0.22,52000,0.37,62,0.82,9,8,3,0.86
+Saudi Arabia,Middle East,1350,32,11.0,7,5,8.2,5.0,122,71,58,250,0.31,0.18,61000,0.35,78,0.78,8,7,4,0.78
+Qatar,Middle East,410,34,7.8,5,4,6.8,3.5,136,75,42,135,0.36,0.24,47000,0.39,55,0.84,7,7,3,0.82
+Russia,Eurasia,940,26,6.2,8,8,13.5,9.0,118,76,82,180,0.24,0.14,68000,0.31,96,0.72,7,5,8,0.62
+Mongolia,Asia,220,42,8.6,4,6,15.0,7.0,112,78,70,95,0.29,0.19,39000,0.28,74,0.76,6,5,6,0.66
