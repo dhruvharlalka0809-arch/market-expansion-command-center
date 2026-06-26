@@ -2,6 +2,8 @@
 
 A portfolio-grade decision app for ranking international expansion markets using market sizing, finance modeling, pipeline forecasting, risk scoring, and an executive recommendation memo.
 
+**Live demo:** https://market-expansion-command-center.streamlit.app/
+
 ## What It Shows
 
 - TAM/SAM market prioritization
@@ -9,6 +11,28 @@ A portfolio-grade decision app for ranking international expansion markets using
 - Sales pipeline forecasting from leads, qualification, and win-rate assumptions
 - Risk scoring across competition, regulation, logistics, tariffs, FX, and payment cycles
 - Executive memo generation based on the model output
+
+## Decision Workflow
+
+1. Filter markets by region and data confidence.
+2. Adjust setup, fixed-cost, marketing, and payback assumptions.
+3. Compare market priority, score drivers, financial viability, and pipeline forecasts.
+4. Use the generated memo as an executive-ready recommendation draft.
+
+## Scoring Methodology
+
+The model combines eight weighted drivers:
+
+- Market size
+- Expected growth
+- Profitability
+- Pipeline value
+- Strategic fit
+- Channel access
+- Risk
+- Data confidence
+
+Risk includes competition, regulatory complexity, FX exposure, payment cycles, logistics cost, and tariff exposure. The sample dataset is intentionally small and transparent so the assumptions can be reviewed and replaced.
 
 ## Run Locally
 
@@ -23,6 +47,12 @@ Or use the helper script:
 
 ```bash
 ./run_app.sh
+```
+
+## Validate
+
+```bash
+python -m unittest discover -s tests
 ```
 
 ## Recruiter Positioning
