@@ -34,6 +34,12 @@ The model combines eight weighted drivers:
 - Risk
 - Data confidence
 
+## Validate
+
+```bash
+python scripts/validate.py
+```
+
 Risk includes competition, regulatory complexity, FX exposure, payment cycles, logistics cost, and tariff exposure. The sample dataset is intentionally small and transparent so the assumptions can be reviewed and replaced.
 
 ## Run Locally
