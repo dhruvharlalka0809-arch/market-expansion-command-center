@@ -3,7 +3,7 @@ import unittest
 
 import pandas as pd
 
-from src.model import Assumptions, build_strategy_memo, score_markets
+from src.model import Assumptions, build_strategy_memo, format_currency, score_markets
 
 
 class MarketScoringTests(unittest.TestCase):
@@ -31,9 +31,12 @@ class MarketScoringTests(unittest.TestCase):
     def test_strategy_memo_uses_top_ranked_market(self) -> None:
         scored = score_markets(self.markets, Assumptions())
         memo = build_strategy_memo(scored, Assumptions())
+        top = scored.iloc[0]
 
         self.assertTrue(memo.startswith("# Market Entry Recommendation: Saudi Arabia"))
-        self.assertIn("Revenue potential", memo)
+        self.assertIn(f"Revenue potential: {format_currency(top['forecast_revenue'])}", memo)
+        self.assertIn(f"Gross profit: {format_currency(top['gross_profit'])}", memo)
+        self.assertIn(f"Profit potential: {format_currency(top['net_contribution'])}", memo)
         self.assertIn("Recommended Next Steps", memo)
 
 

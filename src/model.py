@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from decimal import Decimal, ROUND_HALF_UP
 from typing import Dict
 
 import pandas as pd
@@ -25,6 +26,11 @@ class Assumptions:
     marketing_budget: float = 24000
     planning_horizon_months: int = 12
     target_payback_months: int = 18
+
+
+def format_currency(value: float) -> str:
+    rounded = Decimal(str(value)).quantize(Decimal("1"), rounding=ROUND_HALF_UP)
+    return f"${rounded:,.0f}"
 
 
 def _normalize(series: pd.Series, higher_is_better: bool = True) -> pd.Series:
@@ -104,8 +110,9 @@ Prioritize {top.market} as the next expansion market. It ranks first with a mark
 
 ## Why This Market Wins
 - Serviceable market: ${top.sam_m:,.0f}M from a ${top.tam_m:,.0f}M TAM.
-- Revenue potential: ${top.forecast_revenue:,.0f} in modeled 12-month pipeline value.
-- Profit potential: ${top.net_contribution:,.0f} net contribution after setup, fixed, and marketing costs.
+- Revenue potential: {format_currency(top.forecast_revenue)} in modeled 12-month pipeline value.
+- Gross profit: {format_currency(top.gross_profit)} before market entry costs.
+- Profit potential: {format_currency(top.net_contribution)} net contribution after setup, fixed, and marketing costs.
 - Payback: {payback_view} against a target of {assumptions.target_payback_months} months.
 - Commercial access: {top.channel_access:.0f}/10 channel access and {top.strategic_fit:.0f}/10 strategic fit.
 

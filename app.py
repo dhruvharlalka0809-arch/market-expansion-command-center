@@ -12,7 +12,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
 
-from src.model import Assumptions, build_strategy_memo, score_markets
+from src.model import Assumptions, build_strategy_memo, format_currency, score_markets
 
 
 BASE_DIR = Path(__file__).parent
@@ -20,7 +20,7 @@ DATA_PATH = BASE_DIR / "data" / "sample_markets.csv"
 
 
 st.set_page_config(
-    page_title="Market Expansion Command Center",
+    page_title="AI Market Expansion Command Center",
     page_icon=":chart_with_upwards_trend:",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -296,9 +296,9 @@ detail = scored[
 ].copy()
 detail["sam_m"] = detail["sam_m"].map(lambda x: f"${x:,.0f}M")
 detail["expected_growth_pct"] = detail["expected_growth_pct"].map(lambda x: f"{x:.1f}%")
-detail["forecast_revenue"] = detail["forecast_revenue"].map(money)
-detail["gross_profit"] = detail["gross_profit"].map(money)
-detail["net_contribution"] = detail["net_contribution"].map(money)
+detail["forecast_revenue"] = detail["forecast_revenue"].map(format_currency)
+detail["gross_profit"] = detail["gross_profit"].map(format_currency)
+detail["net_contribution"] = detail["net_contribution"].map(format_currency)
 detail["payback_months"] = detail["payback_months"].map(lambda x: f"{x:.1f}")
 detail["risk_index"] = detail["risk_index"].map(lambda x: f"{x:.1f}/10")
 detail["data_confidence"] = detail["data_confidence"].map(lambda x: f"{x:.0%}")
