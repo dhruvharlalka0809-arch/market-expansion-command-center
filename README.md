@@ -4,6 +4,8 @@ A portfolio-grade decision app for ranking international expansion markets using
 
 **Live demo:** https://market-expansion-command-center.streamlit.app/
 
+![Market Expansion Command Center dashboard preview](assets/dashboard-preview.jpg)
+
 ## What It Shows
 
 - TAM/SAM market prioritization
